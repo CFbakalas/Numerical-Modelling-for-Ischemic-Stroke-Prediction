@@ -1,0 +1,16 @@
+file/set-tui-version "25.2"
+
+/file/read-case "YourFullDirPathToUDF/case_file.cas.h5"
+/define/user-defined/compiled-functions compile "libudf" yes "YourFullDirPathToUDF/parveldiffS.c" "" ""
+/define/user-defined/compiled-functions load "libudf"
+/file/read-settings "FullCasePath/settFile"
+/solve/initialize/hyb-initialization
+
+
+
+/file/autosave/data-frequency 200
+/solve/iterate 4000
+/file/autosave/root-name "FullCasePath/brain_autosave"
+/file/write-case-data "FullCasePath/brainDat.dat"
+
+exit yes
